@@ -105,7 +105,7 @@
               if(this !== "") matched = (this == key);
             });
             if(modified && matched) {
-              bindings[binding](e);
+              bindings[binding].call(this, e);
               e.preventDefault();
             }
           }
