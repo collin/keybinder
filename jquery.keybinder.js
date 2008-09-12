@@ -88,9 +88,9 @@
             ,key; 
           
           if(_.special_keys[e.keyCode]) key = _.special_keys[e.keyCode];        
-          else if(e.which == 188) key=","; //If the user presses , when the type is onkeydown
-			    else if(e.which == 190) key="."; //If the user presses , when the type is onkeydown
-          else if(e.which != 0) key = String.fromCharCode(e.which); 
+          else if(e.keyCode == 188) key=","; //If the user presses , when the type is onkeydown
+			    else if(e.keyCode == 190) key="."; //If the user presses , when the type is onkeydown
+          else if(e.charCode != 0) key = String.fromCharCode(e.charCode); 
           
           for(binding in bindings) {
             modified = true;
