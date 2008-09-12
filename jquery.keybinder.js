@@ -93,8 +93,8 @@ _.fn.extend({
       ,that = this;
     bindings[binding] = fn;
     this.keybindings(bindings);
-    if(!this.data('__keybound__')) {
-      this.data('__keybound__', true);
+    if(!this.data("__keybound__")) {
+      this.data("__keybound__", true);
       this.keydown(function(e){
         var bindings = that.keybindings()
           ,binding
