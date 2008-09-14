@@ -113,7 +113,7 @@
                   presses++;
                 }
             });
-            console.log(requested_presses, presses)
+            console.log(key, requested_presses, presses)
             if(modified && matched && presses === requested_presses) {
               bindings[binding].call(this, e);
               e.preventDefault();
