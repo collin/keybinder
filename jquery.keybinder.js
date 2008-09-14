@@ -95,6 +95,7 @@
           else if(e.charCode != 0) key = String.fromCharCode(e.charCode); 
           
           for(binding in bindings) {
+            presses = 0;
             requested_presses = binding.split('+').length;
             modified = true;
             _(modKeys).each(function() {
