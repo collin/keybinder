@@ -92,7 +92,7 @@
           if(_.special_keys[e.keyCode]) key = _.special_keys[e.keyCode];        
           else if(e.keyCode == 188) key=","; //If the user presses , when the type is onkeydown
 			    else if(e.keyCode == 190) key="."; //If the user presses , when the type is onkeydown
-          else if(e.charCode != 0) key = String.fromCharCode(e.charCode); 
+          else if(e.which != 0) key = String.fromCharCode(e.which); 
           
           for(binding in bindings) {
             presses = 0;
@@ -102,16 +102,16 @@
               // false if the modifier is wanted, but it isn't given
               if(binding.match(this) !== null) modified = e[this+"Key"];
               if(e[this+"Key"]) presses++;
-              //console.log(binding.match(this) !== null, this, binding, modified, e[this+"Key"])
             });
             keys = binding.replace(/shift|ctrl|alt|meta/, '').split(/\++/);
             matched = false;
             _(keys).each(function() {
-              if(this !== "") 
+              if(this !== "") {
                 if(this == key) {
                   matched = true;
                   presses++;
                 }
+              }
             });
             if(modified && matched && presses === requested_presses) {
               bindings[binding].call(this, e);
