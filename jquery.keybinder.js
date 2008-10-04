@@ -113,10 +113,22 @@
                 }
               }
             });
-            if(modified && matched && presses === requested_presses) {
+            function execute() {
               bindings[binding].call(this, e);
               e.preventDefault();
+            }
+            if(modified && matched && presses === requested_presses) {
+              execute();
               break;
+            }
+            else {
+              _(keys).each(function() {
+                if(this !== "") {
+                  if(this == _.shift_nums[key]) {
+                    execute.call(this);
+                  }
+                }
+              });
             }
           }
         });
