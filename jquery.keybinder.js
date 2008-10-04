@@ -114,7 +114,7 @@
               }
             });
             function execute() {
-              bindings[binding].call(that, e);
+              bindings[binding].call(e.target, e);
               e.preventDefault();
             }
             if(modified && matched && presses === requested_presses) {
