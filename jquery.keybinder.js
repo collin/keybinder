@@ -115,7 +115,6 @@
             });
             function execute() {
               bindings[binding].call(e.target, e);
-              e.preventDefault();
             }
             if(modified && matched && presses === requested_presses) {
               execute();
