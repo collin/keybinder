@@ -70,6 +70,26 @@
       } 
       return old;
     }
+
+    ,chord: function() {
+      var pieces = _.makeArray(arguments)
+        ,callback = pieces.shift()
+        ,bound = this;
+        ,chordbindings = bound.data("__chordbindings__", []);
+      
+      _(pieces).each(function(which, piece) {
+        if(pieces[which + 1]) {
+          bound.keybind(piece, function() { 
+            bound.keybind(pieces[which + 1])
+          });
+        }
+        else {
+          
+        }
+      });
+      
+      return this;
+    }
     
     ,keybind: function(binding, fn) {
       var bindings = {}
